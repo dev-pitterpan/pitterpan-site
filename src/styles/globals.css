@@ -69,7 +69,6 @@
   }
   .featured-brands {
     --party-edge-fill: #fff1cb;
-    --brand-wave-lift: 0px;
     position: relative;
     background: var(--party-edge-fill);
     padding-block: clamp(2rem, 5vw, 4rem);
@@ -78,21 +77,26 @@
   .featured-brands-edge {
     position: absolute;
     inset: auto 0 calc(100% - 1px);
-    height: var(--brand-wave-lift);
-    background: var(--party-edge-fill);
+    height: clamp(6rem, 17vw, 14rem);
     pointer-events: none;
   }
 
   .featured-brands-edge .party-ribbon {
     position: absolute;
-    bottom: calc(100% - 1px);
+    inset: 0;
     width: 100%;
-    height: clamp(1.25rem, 3vw, 2.5rem);
+    height: 100%;
   }
 
   .featured-brands .eyebrow { @apply mb-2 text-brand-red; }
   .featured-brands h2 { @apply mb-6; font-size: clamp(1.8rem, 4vw, 3rem); }
-  .featured-brands-grid { @apply grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5; }
+  .featured-brands-grid { @apply mx-auto grid max-w-[62rem] grid-cols-2 gap-3 sm:grid-cols-6; }
+  .featured-brands-grid li { min-width: 0; }
+
+  @media (min-width: 640px) {
+    .featured-brands-grid li { grid-column: span 2; }
+    .featured-brands-grid li:nth-child(4) { grid-column: 2 / span 2; }
+  }
   .featured-brand { @apply flex h-full flex-col items-center justify-center gap-2 rounded-2xl border border-blue-950/10 bg-white p-3 text-center text-sm font-extrabold transition-colors hover:border-blue-950/40; }
   .featured-brand img { width: 100%; max-width: 10rem; height: 4.75rem; object-fit: contain; }
 
