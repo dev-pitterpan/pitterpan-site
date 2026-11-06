@@ -94,8 +94,9 @@
   }
 
   .cta-icon-track svg, .card-arrow svg { width: 1.05rem; height: 1.05rem; }
-  .cta-icon-track .icon-shopping-cart { width: 2rem; height: 1.5rem; }
-  .mobile-shop .icon-shopping-cart { display: inline-block; width: 1.65rem; height: 1.25rem; margin-right: .25rem; vertical-align: middle; }
+  .cta-icon-track .icon-shopping-cart { width: 2.35rem; height: 1.65rem; }
+  .cta-icon-track .icon-store-map { width: 1.8rem; height: 1.65rem; }
+  .mobile-shop .icon-shopping-cart { display: inline-block; width: 1.9rem; height: 1.35rem; margin-right: .25rem; vertical-align: middle; }
   .cta-icon-track > :last-child { transform: translateX(-110%); }
   .cta-label-track > :last-child { transform: translateY(110%); }
   .cta:is(:hover, :focus-visible) { color: var(--cta-hover-fg); }

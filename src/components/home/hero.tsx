@@ -44,7 +44,7 @@ export function Hero() {
         <div className="hero-copy">
           <p className="eyebrow" data-hero-line>✦ &nbsp; Joinville, SC</p>
           <p data-hero-line>Do primeiro balão ao último pedaço de bolo. Encontre os detalhes que deixam a comemoração com a sua cara.</p>
-          <div className="flex flex-wrap gap-3" data-hero-line><Cta href="/colecoes/" variant="light">Explorar coleções</Cta><Cta href="/lojas/" variant="outline">Encontrar uma loja</Cta></div>
+          <div className="flex flex-wrap gap-3" data-hero-line><Cta href="/colecoes/" variant="light">Explorar coleções</Cta><Cta href="/lojas/" variant="outline" icon="store-map">Encontrar uma loja</Cta></div>
         </div>
         <div className="hero-signature" data-hero-line>
           <h1 id="hero-title">Pitter Pan <span className="sr-only">Festas</span></h1>
