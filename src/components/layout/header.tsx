@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { navigation, site } from '@/config/site';
 import { BrandMark } from '../brand/brand-mark';
+import { Icon } from '../ui/icon';
 import { Cta } from '../ui/cta';
 import { PartyRibbon } from './party-ribbon';
 
@@ -29,9 +30,9 @@ export function Header() {
           <nav id="main-nav" className="site-nav" aria-label="Principal" data-open={open}>
             {navigation.map(({ href, label }) => <a key={href} href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>)}
             <a href={site.catalog}>Catálogo ↗</a>
-            <a className="mobile-shop" href={site.shop}>Loja online ↗</a>
+            <a className="mobile-shop" href={site.shop}><Icon name="shopping-cart" /> Loja online</a>
           </nav>
-          <div className="desktop-shop"><Cta href={site.shop} variant="light">Loja online</Cta></div>
+          <div className="desktop-shop"><Cta href={site.shop} variant="light" icon="shopping-cart">Loja online</Cta></div>
         </div>
       </header>
     </>
