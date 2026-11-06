@@ -1,3 +1,4 @@
+import { FeaturedBrands } from '@/components/home/featured-brands';
 import { Hero } from '@/components/home/hero';
 import { CollectionGrid } from '@/components/ui/collection-grid';
 import { Cta } from '@/components/ui/cta';
@@ -7,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <div className="category-strip">BALÕES <span>✦</span> DECORAÇÃO <span>✦</span> CONFEITARIA <span>✦</span> FANTASIAS</div>
+      <FeaturedBrands />
       <section className="shell section-space">
         <div className="section-heading"><div><p className="eyebrow">Escolha por onde começar</p><h2>O que vamos <em>celebrar?</em></h2></div><Cta href="/colecoes/" variant="outline">Todas as coleções</Cta></div>
         <CollectionGrid featured />

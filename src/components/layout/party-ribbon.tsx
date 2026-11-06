@@ -12,7 +12,7 @@ export function PartyRibbon({ bottomEdge = false }: { bottomEdge?: boolean }) {
           <stop offset="100%" stopColor="#56de68" />
         </linearGradient>
       </defs>
-      {bottomEdge && <path d={`${wave}V27H-12Z`} fill="var(--color-paper)" />}
+      {bottomEdge && <path d={`${wave}V27H-12Z`} fill="var(--party-edge-fill, var(--color-paper))" />}
       <path d={wave} fill="none" stroke="url(#party-ribbon-colors)" strokeWidth="4" vectorEffect="non-scaling-stroke" />
     </svg>
   );
