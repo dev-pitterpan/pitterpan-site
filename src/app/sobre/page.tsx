@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageIntro } from '@/components/ui/page-intro';
+import { AboutHero } from '@/components/about/about-hero';
 import { Cta } from '@/components/ui/cta';
 
 export const metadata: Metadata = { title: 'Sobre nós' };
@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: 'Sobre nós' };
 export default function AboutPage() {
   return (
     <>
-      <PageIntro label="Sobre nós" title={<>A festa começa <em>nos detalhes.</em></>}>A Pitter Pan reúne artigos para festas, balões e confeitaria em três unidades de Joinville.</PageIntro>
+      <AboutHero />
       <section className="shell section-space grid gap-8 md:grid-cols-2">
         <div><p className="eyebrow">Nossa proposta</p><h2>Da primeira ideia à mesa posta.</h2></div>
         <div className="reading">
