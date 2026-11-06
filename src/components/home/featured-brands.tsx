@@ -46,9 +46,10 @@ export function FeaturedBrands() {
     gsap.registerPlugin(ScrollTrigger);
     const motion = gsap.matchMedia(target);
     motion.add('(prefers-reduced-motion: no-preference)', () => {
+      const mobile = window.matchMedia('(max-width: 600px)');
       const transition = gsap.timeline({
         defaults: { duration: 0.35, ease: 'sine.inOut' },
-        scrollTrigger: { trigger: target, start: 'top bottom', end: 'top 42%', scrub: 0.25 },
+        scrollTrigger: { trigger: target, start: () => mobile.matches ? 'top 85%' : 'top bottom', end: () => mobile.matches ? 'top 36%' : 'top 42%', scrub: 0.25 },
       });
 
       edgeFrames.slice(1).forEach((outline, index) => {

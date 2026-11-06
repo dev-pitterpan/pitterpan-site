@@ -210,6 +210,7 @@
 }
 
 @media (max-width: 600px) {
+  .featured-brands-edge { height: clamp(7rem, 19svh, 10rem); }
   .hero-grid { min-height: max(38rem, 90svh); padding-top: 8rem; }
   .hero-figure img { object-position: 72% center; }
   .hero-figure::after { background: linear-gradient(0deg, #101943ed, #10194325 49%, #101943d9); }
