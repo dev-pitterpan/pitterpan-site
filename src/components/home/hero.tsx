@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Cta } from '../ui/cta';
@@ -20,6 +19,20 @@ export function Hero() {
 
   return (
     <section className="hero" ref={root} aria-labelledby="hero-title">
+      <div className="hero-figure">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/banner-pitter-pan-mobile.webp" width="750" height="500" />
+          <source media="(max-width: 1200px)" srcSet="/images/banner-pitter-pan-tablet.webp" width="1120" height="630" />
+          <img
+            src="/images/banner-pitter-pan-festas.webp"
+            alt="Fachada amarela da Pitter Pan Festas com letreiro e faixas coloridas"
+            width="1672"
+            height="941"
+            fetchPriority="high"
+            data-hero-image
+          />
+        </picture>
+      </div>
       <div className="shell hero-grid">
         <div className="hero-copy">
           <p className="eyebrow" data-hero-line>✦ &nbsp; O mundo das festas em Joinville</p>
@@ -27,10 +40,6 @@ export function Hero() {
           <p data-hero-line>Do primeiro balão ao último pedaço de bolo. Encontre os detalhes que deixam a comemoração com a sua cara.</p>
           <div className="flex flex-wrap gap-3" data-hero-line><Cta href="/colecoes/" variant="light">Explorar coleções</Cta><Cta href="/lojas/" variant="outline">Encontrar uma loja</Cta></div>
         </div>
-        <figure className="hero-figure">
-          <Image src="/images/celebracao.webp" alt="Balões coloridos, presentes e bolo em cenário de festa" fill preload sizes="(max-width: 820px) 100vw, 58vw" data-hero-image />
-          <figcaption>Imagem conceitual</figcaption>
-        </figure>
       </div>
     </section>
   );
