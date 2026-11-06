@@ -61,3 +61,40 @@
     .party-ribbon { height: 19px; }
   }
 }
+
+@layer components {
+  .site-header--overlay {
+    position: absolute;
+    inset: 0 0 auto;
+    background: transparent;
+  }
+
+  .site-header--overlay .header-content {
+    position: relative;
+    width: min(28rem, calc(100% - 2rem));
+    min-height: 0;
+    padding-inline: .7rem;
+    border: 1px solid #fff9;
+    border-radius: .85rem;
+    background: #fffaf0ed;
+    backdrop-filter: blur(14px);
+  }
+
+  .site-header--overlay .brand-mark { width: 64px; height: 55px; }
+  .site-header--overlay .header-label { @apply text-[.65rem] font-extrabold uppercase tracking-widest; }
+  .site-header--overlay .menu-button { @apply block rounded-lg border border-blue-950/20 px-3 py-2 text-sm font-extrabold; }
+  .site-header--overlay .site-nav {
+    @apply absolute inset-x-0 top-full z-10 mt-2 hidden rounded-xl p-2 shadow-lg;
+    background: var(--header-surface);
+  }
+
+  .site-header--overlay .site-nav[data-open='true'] { display: grid; }
+  .site-header--overlay .site-nav a { border-radius: .65rem; }
+  .site-header--overlay .desktop-shop { display: none; }
+  .site-header--overlay .site-nav .mobile-shop { display: block; }
+
+  @media (min-width: 960px) {
+    .site-header--overlay .desktop-shop { display: block; position: absolute; right: calc(15.5rem - 50vw); top: .3rem; white-space: nowrap; }
+    .site-header--overlay .site-nav .mobile-shop { display: none; }
+  }
+}
