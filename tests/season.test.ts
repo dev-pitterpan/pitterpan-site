@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { getSeason } from '../src/lib/season.ts';
 
-test('Natal começa à meia-noite em Joinville', () => {
-  assert.equal(getSeason(new Date('2026-12-01T02:59:59Z')), 'default');
-  assert.equal(getSeason(new Date('2026-12-01T03:00:00Z')), 'christmas');
+test('Natal começa em novembro de 2026 e segue o calendário regular em 2027', () => {
+  assert.equal(getSeason(new Date('2026-11-06T02:59:59Z')), 'default');
+  assert.equal(getSeason(new Date('2026-11-06T03:00:00Z')), 'christmas');
+  assert.equal(getSeason(new Date('2027-12-01T02:59:59Z')), 'default');
+  assert.equal(getSeason(new Date('2027-12-01T03:00:00Z')), 'christmas');
 });
 
 test('Réveillon atravessa o ano e a marca padrão retorna depois da campanha', () => {

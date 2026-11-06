@@ -32,7 +32,7 @@ export function BrandMark() {
       <path d={brandPaths.red.path} fill={isDefault ? brandPaths.red.fill : season.primary} fillRule="evenodd" />
       <path d={brandPaths.yellow.path} fill={isDefault ? brandPaths.yellow.fill : season.secondary} fillRule="evenodd" />
       <path d={brandPaths.white.path} fill={brandPaths.white.fill} fillRule="evenodd" />
-      <g transform="translate(56 -48) scale(3)">
+      <g transform={seasonId === 'christmas' ? 'translate(0 -58) scale(4)' : 'translate(56 -48) scale(3)'}>
         <SeasonAccessory season={seasonId} />
       </g>
     </svg>

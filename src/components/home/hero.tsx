@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Cta } from '../ui/cta';
+import { PartyRibbon } from '../layout/party-ribbon';
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -44,6 +45,7 @@ export function Hero() {
           <p>Balões <span>✦</span> Decoração <span>✦</span> Confeitaria</p>
         </div>
       </div>
+      <PartyRibbon bottomEdge />
     </section>
   );
 }

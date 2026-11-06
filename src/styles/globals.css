@@ -36,6 +36,7 @@
   .cta--outline { @apply border-current; }
 
   .hero { position: relative; isolation: isolate; background: var(--color-brand-blue); color: #fffaf0; }
+  .hero > .party-ribbon { position: absolute; inset: auto 0 -1px; height: clamp(1.25rem, 3vw, 2.5rem); }
   .hero-grid {
     display: flex;
     flex-direction: column;

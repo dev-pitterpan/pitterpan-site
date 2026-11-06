@@ -67,20 +67,31 @@
     position: absolute;
     inset: 0 0 auto;
     background: transparent;
+    padding-top: 1rem;
   }
 
   .site-header--overlay .header-content {
     position: relative;
     width: min(28rem, calc(100% - 2rem));
     min-height: 0;
-    padding-inline: .7rem;
+    padding: .5rem .7rem .5rem 1rem;
     border: 1px solid #fff9;
     border-radius: .85rem;
     background: #fffaf0ed;
     backdrop-filter: blur(14px);
   }
 
-  .site-header--overlay .brand-mark { width: 64px; height: 55px; }
+  .home-brand { position: absolute; top: .6rem; left: clamp(1rem, 2.5vw, 2.5rem); }
+  .home-brand .brand-mark { width: clamp(4.75rem, 9vw, 7.5rem); height: auto; }
+
+  @media (max-width: 640px) {
+    .site-header--overlay .header-content {
+      width: min(24rem, calc(100% - 7rem));
+      margin-left: auto;
+      margin-right: 1rem;
+      gap: .5rem;
+    }
+  }
   .site-header--overlay .header-label { @apply text-[.65rem] font-extrabold uppercase tracking-widest; }
   .site-header--overlay .menu-button { @apply block rounded-lg border border-blue-950/20 px-3 py-2 text-sm font-extrabold; }
   .site-header--overlay .site-nav {

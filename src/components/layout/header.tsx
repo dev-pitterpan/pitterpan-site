@@ -21,9 +21,9 @@ export function Header() {
           document.getElementById('menu-button')?.focus();
         }
       }}>
-        <PartyRibbon />
+        {isHome ? <a href="/" className="brand-link home-brand"><BrandMark /></a> : <PartyRibbon />}
         <div className="shell header-content flex items-center justify-between gap-5">
-          <a href="/" className="brand-link"><BrandMark /></a>
+          {!isHome && <a href="/" className="brand-link"><BrandMark /></a>}
           {isHome && <span className="header-label">O mundo das festas</span>}
           <button id="menu-button" className="menu-button" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>{open ? 'Fechar' : 'Menu'}</button>
           <nav id="main-nav" className="site-nav" aria-label="Principal" data-open={open}>

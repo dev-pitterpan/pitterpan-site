@@ -26,6 +26,9 @@ export function getSeason(date = new Date()): SeasonId {
   const month = Number(parts.find(({ type }) => type === 'month')?.value);
   const day = Number(parts.find(({ type }) => type === 'day')?.value);
   const monthDay = month * 100 + day;
+  // Em 2026, a edição de Natal entra no ar em 6 de novembro.
+  if (year === 2026 && monthDay >= 1106 && monthDay < 1201) return 'christmas';
+
   const fixed = fixedCampaigns.find(({ start, end }) =>
     start <= end ? monthDay >= start && monthDay <= end : monthDay >= start || monthDay <= end,
   );
