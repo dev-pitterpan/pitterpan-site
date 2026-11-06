@@ -3,7 +3,14 @@ import type { SeasonId } from '@/config/seasons';
 export function SeasonAccessory({ season }: { season: SeasonId }) {
   switch (season) {
     case 'christmas':
-      return <g transform="rotate(14 55 20)"><path d="M39 22Q49 0 65 5L78 17L66 13L68 23Z" fill="#ed3947"/><rect x="38" y="20" width="31" height="7" rx="3.5" fill="#fff"/><circle cx="77" cy="17" r="5" fill="#fff"/></g>;
+      return (
+        <g strokeLinejoin="round">
+          <path d="M5 43C7 30 12 17 23 9C35 0 48 1 58 9C65 14 66 20 62 24L25 39C18 39 12 43 9 48Z" fill="#ee1c27" stroke="#8b101c" strokeWidth="1.5" />
+          <path d="M9 41C13 29 19 22 27 17C23 23 21 30 21 36L12 46Z" fill="#be1420" />
+          <path d="M13 38C13 34 16 32 20 32C21 28 24 26 28 26C29 22 34 20 38 21C40 17 44 16 48 17C51 13 55 13 58 14C64 11 69 15 69 20C70 24 67 27 63 27C61 30 57 31 53 30C51 34 47 35 43 34C41 38 36 39 33 38C30 42 26 43 22 42C19 47 12 46 13 38Z" fill="#fffdf8" stroke="#d9cfd2" strokeWidth="1" />
+          <path d="M3 44C4 41 8 40 10 42C14 42 15 46 13 49C13 53 8 55 5 52C1 52 0 47 3 44Z" fill="#fffdf8" stroke="#d9cfd2" strokeWidth="1" />
+        </g>
+      );
     case 'halloween':
       return <g><path d="m43 22 13-18 10 4-4 13 12 5-3 4-33-4Z" fill="#251333"/><path d="m45 19 19 3" stroke="#ff843d" strokeWidth="4"/></g>;
     case 'easter':

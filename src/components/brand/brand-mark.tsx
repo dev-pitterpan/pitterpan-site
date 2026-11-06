@@ -27,12 +27,12 @@ export function BrandMark() {
   const isDefault = seasonId === 'default';
 
   return (
-    <svg className="brand-mark" viewBox={isDefault ? '0 0 443 474' : '0 -45 443 519'} role="img" aria-label={season.label ? `Pitter Pan Festas, edição de ${season.label}` : 'Pitter Pan Festas'} data-season={seasonId}>
+    <svg className="brand-mark" viewBox={isDefault ? '0 0 443 474' : '0 -55 443 529'} role="img" aria-label={season.label ? `Pitter Pan Festas, edição de ${season.label}` : 'Pitter Pan Festas'} data-season={seasonId}>
       <path d={brandPaths.body.path} fill={isDefault ? brandPaths.body.fill : season.background} fillRule="evenodd" />
       <path d={brandPaths.red.path} fill={isDefault ? brandPaths.red.fill : season.primary} fillRule="evenodd" />
       <path d={brandPaths.yellow.path} fill={isDefault ? brandPaths.yellow.fill : season.secondary} fillRule="evenodd" />
       <path d={brandPaths.white.path} fill={brandPaths.white.fill} fillRule="evenodd" />
-      <g transform={seasonId === 'christmas' ? 'translate(0 -58) scale(4)' : 'translate(56 -48) scale(3)'}>
+      <g transform={seasonId === 'christmas' ? 'translate(27 -52) scale(3.25)' : 'translate(56 -48) scale(3)'}>
         <SeasonAccessory season={seasonId} />
       </g>
     </svg>
