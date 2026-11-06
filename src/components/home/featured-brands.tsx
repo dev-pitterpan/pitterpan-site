@@ -14,20 +14,18 @@ const brands = [
   { name: 'Mix', handle: 'mix', image: 'marcas-mix.png?v=1724941108' },
 ];
 
-
-// Cada trecho tem os mesmos comandos SVG para interpolar os degraus durante o scroll.
+// Os pontos e as tangentes mantêm a borda contínua entre os quadros.
 function buildEdge(heights: number[]) {
-  return 'M-1 144' + heights.map((height, index) => {
+  return heights.slice(1).reduce((path, height, index) => {
     const x = index * 200;
-    return `L${x} ${height}C${x + 65} ${height - 8} ${x + 135} ${height + 8} ${x + 200} ${height}`;
-  }).join('') + 'L1001 144';
+    return path + `C${x + 70} ${heights[index]} ${x + 130} ${height} ${x + 200} ${height}`;
+  }, `M0 ${heights[0]}`);
 }
 
 const edgeFrames = [
-  [144, 144, 144, 144, 144],
-  [144, 144, 48, 144, 144],
-  [144, 85, 20, 85, 144],
-  [120, 72, 12, 72, 120],
+  [139, 148, 133, 145, 135, 142],
+  [138, 145, 63, 78, 137, 140],
+  [128, 138, 82, 91, 134, 128],
 ].map(buildEdge);
 
 export function FeaturedBrands() {
@@ -41,19 +39,22 @@ export function FeaturedBrands() {
     const motion = gsap.matchMedia(target);
     motion.add('(prefers-reduced-motion: no-preference)', () => {
       const transition = gsap.timeline({
-        defaults: { duration: 0.36, ease: 'none' },
-        scrollTrigger: { trigger: target, start: 'top bottom', end: 'top 25%', scrub: true },
+        defaults: { duration: 0.42, ease: 'sine.inOut' },
+        scrollTrigger: { trigger: target, start: 'top 96%', end: 'top 44%', scrub: 0.35 },
       });
 
       edgeFrames.slice(1).forEach((outline, index) => {
         transition
-          .to('[data-brands-fill]', { attr: { d: `${outline}V154H-1Z` } }, index * 0.36)
-          .to('[data-brands-outline]', { attr: { d: outline } }, index * 0.36);
+          .to('[data-brands-fill]', { attr: { d: `${outline}V154H-1Z` } }, index * 0.42)
+          .to('[data-brands-outline]', { attr: { d: outline } }, index * 0.42);
       });
 
-      transition
-        .from('[data-brand-row="first"]', { xPercent: -5, opacity: 0.35 }, 0.8)
-        .from('[data-brand-row="second"]', { xPercent: 5, opacity: 0.35 }, 0.88);
+      transition.from('[data-brand-card]', {
+        y: 16,
+        opacity: 0.65,
+        duration: 0.28,
+        stagger: 0.04,
+      }, 0.52);
     });
     return () => motion.revert();
   }, []);
@@ -67,8 +68,8 @@ export function FeaturedBrands() {
         <p className="eyebrow">Do nosso catálogo</p>
         <h2 id="brands-title">Marcas que você encontra aqui</h2>
         <ul className="featured-brands-grid">
-          {brands.map(({ name, handle, image }, index) => (
-            <li key={handle} data-brand-row={index < 3 ? 'first' : 'second'}>
+          {brands.map(({ name, handle, image }) => (
+            <li key={handle} data-brand-card>
               <a className="featured-brand" href={`${site.shop}/collections/${handle}`}>
                 <img src={`${site.shop}/cdn/shop/files/${image}&width=320`} alt="" width="160" height="76" loading="lazy" decoding="async" />
                 <span>{name}</span>
