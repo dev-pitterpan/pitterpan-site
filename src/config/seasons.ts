@@ -9,7 +9,7 @@ export type Season = {
 
 export const seasons: Record<SeasonId, Season> = {
   default: { label: '', background: '#172b80', primary: '#f14043', secondary: '#ffda42' },
-  christmas: { label: 'Natal', background: '#164b36', primary: '#f34a52', secondary: '#ffdf83' },
+  christmas: { label: 'Natal', background: '#283583', primary: '#f34a52', secondary: '#ffdf83' },
   'new-year': { label: 'Réveillon', background: '#342958', primary: '#f3d377', secondary: '#ffffff' },
   halloween: { label: 'Halloween', background: '#361653', primary: '#ff843d', secondary: '#fcd47c' },
   junina: { label: 'Festa Junina', background: '#1d5087', primary: '#ff7469', secondary: '#ffda60' },
