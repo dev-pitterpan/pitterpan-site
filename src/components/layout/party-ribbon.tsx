@@ -12,7 +12,6 @@ export function PartyRibbon() {
           <stop offset="100%" stopColor="#56de68" />
         </linearGradient>
       </defs>
-      <path d={`${wave}V-1H-12Z`} fill="var(--header-surface)" />
       <path d={wave} fill="none" stroke="url(#party-ribbon-colors)" strokeWidth="4" vectorEffect="non-scaling-stroke" />
     </svg>
   );

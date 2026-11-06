@@ -1,7 +1,7 @@
 @layer components {
   .topline {
     @apply px-3 py-2 text-center text-[.66rem] font-extrabold tracking-[.2em];
-    background: #fff0bf;
+    background: var(--color-paper);
     color: var(--color-ink);
   }
 
@@ -33,14 +33,11 @@
   .site-nav [aria-current='page'] { box-shadow: inset 0 0 0 1px #bdc9f4; }
   .menu-button,.site-nav .mobile-shop { display: none; }
 
-  /* O SVG cobre o topo da próxima seção, deixando o banner visível sob a própria curva. */
+  /* A faixa ondulada acompanha o topo do menu em todos os tamanhos. */
   .party-ribbon {
-    position: absolute;
-    inset-inline: 0;
-    top: calc(100% - 1px);
     display: block;
     width: 100%;
-    height: 34px;
+    height: 22px;
     pointer-events: none;
   }
 

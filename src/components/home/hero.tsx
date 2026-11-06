@@ -19,7 +19,17 @@ export function Hero() {
 
   return (
     <section className="hero" ref={root} aria-labelledby="hero-title">
-      <div className="hero-figure">
+      <div className="shell hero-grid">
+        <div className="hero-title">
+          <p className="eyebrow" data-hero-line>✦ &nbsp; O mundo das festas em Joinville</p>
+          <h1 id="hero-title" data-hero-line>Hoje é dia <em>de festa!</em></h1>
+        </div>
+        <div className="hero-copy">
+          <p data-hero-line>Do primeiro balão ao último pedaço de bolo. Encontre os detalhes que deixam a comemoração com a sua cara.</p>
+          <div className="flex flex-wrap gap-3" data-hero-line><Cta href="/colecoes/" variant="light">Explorar coleções</Cta><Cta href="/lojas/" variant="outline">Encontrar uma loja</Cta></div>
+        </div>
+      </div>
+      <div className="shell hero-figure">
         <picture>
           <source media="(max-width: 600px)" srcSet="/images/banner-pitter-pan-mobile.webp" width="750" height="500" />
           <source media="(max-width: 1200px)" srcSet="/images/banner-pitter-pan-tablet.webp" width="1120" height="630" />
@@ -32,14 +42,6 @@ export function Hero() {
             data-hero-image
           />
         </picture>
-      </div>
-      <div className="shell hero-grid">
-        <div className="hero-copy">
-          <p className="eyebrow" data-hero-line>✦ &nbsp; O mundo das festas em Joinville</p>
-          <h1 id="hero-title" data-hero-line>Hoje é dia<br />de <em>festa!</em></h1>
-          <p data-hero-line>Do primeiro balão ao último pedaço de bolo. Encontre os detalhes que deixam a comemoração com a sua cara.</p>
-          <div className="flex flex-wrap gap-3" data-hero-line><Cta href="/colecoes/" variant="light">Explorar coleções</Cta><Cta href="/lojas/" variant="outline">Encontrar uma loja</Cta></div>
-        </div>
       </div>
     </section>
   );

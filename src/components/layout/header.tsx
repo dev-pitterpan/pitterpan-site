@@ -20,6 +20,7 @@ export function Header() {
           document.getElementById('menu-button')?.focus();
         }
       }}>
+        <PartyRibbon />
         <div className="shell header-content flex items-center justify-between gap-5">
           <a href="/" className="brand-link"><BrandMark /></a>
           <button id="menu-button" className="menu-button" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>{open ? 'Fechar' : 'Menu'}</button>
@@ -30,7 +31,6 @@ export function Header() {
           </nav>
           <div className="desktop-shop"><Cta href={site.shop} variant="light">Loja online</Cta></div>
         </div>
-        <PartyRibbon />
       </header>
     </>
   );
