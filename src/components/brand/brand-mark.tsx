@@ -4,6 +4,7 @@ import { useSyncExternalStore } from 'react';
 import { seasons, type SeasonId } from '@/config/seasons';
 import { getSeason } from '@/lib/season';
 import { SeasonAccessory } from './season-accessory';
+import { brandPaths } from './brand-paths';
 
 function subscribe(update: () => void) {
   // Atualiza também em abas que ficaram suspensas durante uma virada de data.
@@ -23,16 +24,17 @@ export function BrandMark() {
   const seasonId = useSyncExternalStore(subscribe, getSeason, getServerSeason);
   const season = seasons[seasonId];
 
+  const isDefault = seasonId === 'default';
+
   return (
-    <svg className="brand-mark" viewBox="0 0 110 85" role="img" aria-label={season.label ? `Pitter Pan Festas, edição de ${season.label}` : 'Pitter Pan Festas'} data-season={seasonId}>
-      <ellipse cx="55" cy="49" rx="50" ry="33" fill={season.background} />
-      <path d="m95 26 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z" fill={season.secondary} />
-      <g textAnchor="middle" className="brand-lettering">
-        <text x="53" y="43" fontSize="25" fill={season.primary}>Pitter</text>
-        <text x="54" y="63" fontSize="28" fill={season.secondary}>Pan</text>
-        <text x="55" y="75" fontSize="8" letterSpacing="2" fill="#fff">FESTAS</text>
+    <svg className="brand-mark" viewBox={isDefault ? '0 0 443 474' : '0 -45 443 519'} role="img" aria-label={season.label ? `Pitter Pan Festas, edição de ${season.label}` : 'Pitter Pan Festas'} data-season={seasonId}>
+      <path d={brandPaths.body.path} fill={isDefault ? brandPaths.body.fill : season.background} fillRule="evenodd" />
+      <path d={brandPaths.red.path} fill={isDefault ? brandPaths.red.fill : season.primary} fillRule="evenodd" />
+      <path d={brandPaths.yellow.path} fill={isDefault ? brandPaths.yellow.fill : season.secondary} fillRule="evenodd" />
+      <path d={brandPaths.white.path} fill={brandPaths.white.fill} fillRule="evenodd" />
+      <g transform="translate(56 -48) scale(3)">
+        <SeasonAccessory season={seasonId} />
       </g>
-      <SeasonAccessory season={seasonId} />
     </svg>
   );
 }

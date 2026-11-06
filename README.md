@@ -40,4 +40,4 @@ O build gera a versão estática em `out/`. O código-fonte das páginas está e
 
 Edite `src/config/seasons.ts`. As campanhas fixas usam mês e dia no formato MMDD, com início e fim inclusivos. A lista está em ordem de prioridade. O Réveillon atravessa dezembro e janeiro. Páscoa e Carnaval usam dias relativos ao domingo de Páscoa. O cálculo segue o fuso de Joinville e o navegador atualiza a marca enquanto a página permanece aberta.
 
-Para incluir uma campanha, declare seu identificador e paleta, registre o intervalo e adicione o adereço em `season-accessory.tsx`. A marca SVG inicial é uma interpretação provisória em azul, vermelho e amarelo. Substitua a geometria em `brand-mark.tsx` pelo SVG oficial quando estiver disponível, preservando os pontos de cor e a camada do adereço.
+Para incluir uma campanha, declare seu identificador e paleta, registre o intervalo e adicione o adereço em `season-accessory.tsx`. Os contornos da marca estão em `brand-paths.ts`. O componente `brand-mark.tsx` mantém as cores originais fora das campanhas e aplica a paleta sazonal às camadas de cor, preservando a geometria.

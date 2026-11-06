@@ -28,7 +28,6 @@
   .eyebrow { @apply text-xs font-extrabold uppercase tracking-[.17em]; }
   .brand-link { @apply inline-flex shrink-0; }
   .brand-mark { width: 104px; height: 80px; }
-  .brand-lettering { font-family: var(--font-display); font-weight: 690; }
   .cta { @apply inline-flex w-fit items-center justify-center gap-2 rounded-full border border-transparent px-5 py-3 text-sm font-extrabold transition duration-200; }
   .cta:hover { transform: translateY(-2px); }
   .cta svg,.card-arrow svg { width: 1.05rem; height: 1.05rem; }
