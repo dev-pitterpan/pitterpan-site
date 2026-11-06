@@ -14,19 +14,22 @@ const brands = [
   { name: 'Mix', handle: 'mix', image: 'marcas-mix.png?v=1724941108' },
 ];
 
-// Os mesmos comandos SVG permitem animar o recorte sem saltos.
+// Cada crista sobe em um ritmo diferente, com tangentes suaves entre elas.
+const edgePoints = [0, 115, 245, 375, 520, 655, 785, 900, 1000];
+
 function buildEdge(heights: number[]) {
-  return 'M-1 144' + heights.map((height, index) => {
-    const x = index * 200;
-    return `L${x} ${height}C${x + 65} ${height - 7} ${x + 135} ${height + 7} ${x + 200} ${height}`;
-  }).join('') + 'L1001 144';
+  return edgePoints.slice(1).reduce((path, x, index) => {
+    const previous = edgePoints[index];
+    const handle = (x - previous) * 0.45;
+    return path + `C${previous + handle} ${heights[index]} ${x - handle} ${heights[index + 1]} ${x} ${heights[index + 1]}`;
+  }, `M0 ${heights[0]}`);
 }
 
 const edgeFrames = [
-  [144, 144, 144, 144, 144],
-  [144, 144, 64, 144, 144],
-  [144, 72, 14, 72, 144],
-  [105, 48, 8, 48, 105],
+  [144, 138, 146, 139, 146, 139, 146, 139, 144],
+  [144, 137, 122, 134, 67, 133, 103, 140, 144],
+  [132, 142, 76, 117, 18, 110, 56, 133, 138],
+  [105, 126, 57, 100, 9, 88, 38, 111, 102],
 ].map(buildEdge);
 
 const secondRow = [...brands.slice(2), ...brands.slice(0, 2)];
