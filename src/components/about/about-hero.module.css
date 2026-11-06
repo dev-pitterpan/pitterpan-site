@@ -11,6 +11,8 @@
     #10183e;
 }
 
+.edge { position: relative; z-index: 4; }
+
 .stage {
   position: relative;
   display: grid;

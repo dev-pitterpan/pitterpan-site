@@ -44,7 +44,9 @@ export function AboutHero() {
           ))}
         </ul>
       </div>
-      <PartyRibbon />
+      <div className={styles.edge}>
+        <PartyRibbon fill="var(--color-paper)" />
+      </div>
     </section>
   );
 }

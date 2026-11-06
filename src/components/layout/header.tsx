@@ -10,26 +10,23 @@ import { PartyRibbon } from './party-ribbon';
 
 export function Header() {
   const pathname = usePathname();
-  const isHome = pathname === '/';
-  const isAbout = pathname === '/sobre' || pathname === '/sobre/';
-  const headerClass = isHome ? 'site-header--overlay' : isAbout ? 'site-header--about' : '';
+  const hasHeroMenu = pathname === '/' || pathname === '/sobre' || pathname === '/sobre/';
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      {!isHome && !isAbout && <div className="topline">ARTIGOS PARA FESTAS · JOINVILLE, SC</div>}
-      <header className={`site-header ${headerClass}`} onKeyDown={(event) => {
+      {!hasHeroMenu && <div className="topline">ARTIGOS PARA FESTAS · JOINVILLE, SC</div>}
+      <header className={hasHeroMenu ? 'site-header site-header--overlay' : 'site-header'} onKeyDown={(event) => {
         if (event.key === 'Escape' && open) {
           setOpen(false);
           document.getElementById('menu-button')?.focus();
         }
       }}>
-        {isHome && <a href="/" className="brand-link home-brand"><BrandMark /></a>}
-        {isAbout && <div className="topline">ARTIGOS PARA FESTAS · JOINVILLE, SC</div>}
-        {!isHome && !isAbout && <PartyRibbon />}
+        {hasHeroMenu && <a href="/" className="brand-link home-brand"><BrandMark /></a>}
+        {!hasHeroMenu && <PartyRibbon />}
         <div className="shell header-content flex items-center justify-between gap-5">
-          {!isHome && <a href="/" className="brand-link"><BrandMark /></a>}
-          {isHome && <span className="header-label">O mundo das festas</span>}
+          {!hasHeroMenu && <a href="/" className="brand-link"><BrandMark /></a>}
+          {hasHeroMenu && <span className="header-label">O mundo das festas</span>}
           <button id="menu-button" className="menu-button" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>{open ? 'Fechar' : 'Menu'}</button>
           <nav id="main-nav" className="site-nav" aria-label="Principal" data-open={open}>
             {navigation.map(({ href, label }) => <a key={href} href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>)}

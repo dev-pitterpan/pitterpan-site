@@ -12,17 +12,6 @@
     background: var(--header-surface);
   }
 
-  .site-header--about {
-    position: absolute;
-    inset: 0 0 auto;
-    background: transparent;
-  }
-
-  .site-header--about .topline {
-    background: transparent;
-    color: var(--color-paper);
-  }
-
   .header-content { min-height: 86px; }
 
   .site-nav {
