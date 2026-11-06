@@ -2,6 +2,8 @@
   isolation: isolate;
   overflow: hidden;
   color: #fffaf1;
+  /* Reserva espaço para o menu sobreposto e mantém o fundo contínuo. */
+  padding-top: 7rem;
   background:
     radial-gradient(ellipse at 50% 46%, #ffd95426 0%, transparent 28%),
     radial-gradient(ellipse at 49% 42%, #4e74cf 0%, #203d95 33%, transparent 67%),
@@ -60,6 +62,10 @@
 .index { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; margin-bottom: .5rem; border: 1px solid currentColor; border-radius: 50%; color: var(--accent); font-size: .68rem; font-weight: 800; }
 .card h2 { margin-bottom: .4rem; color: var(--accent); font-size: 1.55rem; line-height: 1.05; }
 .card p { color: #edf1ff; font-size: .9rem; line-height: 1.45; }
+
+@media (max-width: 900px) {
+  .hero { padding-top: 6.4rem; }
+}
 
 @media (max-width: 850px) {
   .stage { grid-template-columns: minmax(0, 1fr); gap: 1rem; min-height: 0; padding-block: 2.6rem; }

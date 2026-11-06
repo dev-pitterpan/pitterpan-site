@@ -11,18 +11,22 @@ import { PartyRibbon } from './party-ribbon';
 export function Header() {
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const isAbout = pathname === '/sobre' || pathname === '/sobre/';
+  const headerClass = isHome ? 'site-header--overlay' : isAbout ? 'site-header--about' : '';
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      {!isHome && <div className="topline">ARTIGOS PARA FESTAS · JOINVILLE, SC</div>}
-      <header className={isHome ? 'site-header site-header--overlay' : 'site-header'} onKeyDown={(event) => {
+      {!isHome && !isAbout && <div className="topline">ARTIGOS PARA FESTAS · JOINVILLE, SC</div>}
+      <header className={`site-header ${headerClass}`} onKeyDown={(event) => {
         if (event.key === 'Escape' && open) {
           setOpen(false);
           document.getElementById('menu-button')?.focus();
         }
       }}>
-        {isHome ? <a href="/" className="brand-link home-brand"><BrandMark /></a> : <PartyRibbon />}
+        {isHome && <a href="/" className="brand-link home-brand"><BrandMark /></a>}
+        {isAbout && <div className="topline">ARTIGOS PARA FESTAS · JOINVILLE, SC</div>}
+        {!isHome && !isAbout && <PartyRibbon />}
         <div className="shell header-content flex items-center justify-between gap-5">
           {!isHome && <a href="/" className="brand-link"><BrandMark /></a>}
           {isHome && <span className="header-label">O mundo das festas</span>}

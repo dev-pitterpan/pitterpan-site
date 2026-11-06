@@ -12,6 +12,17 @@
     background: var(--header-surface);
   }
 
+  .site-header--about {
+    position: absolute;
+    inset: 0 0 auto;
+    background: transparent;
+  }
+
+  .site-header--about .topline {
+    background: transparent;
+    color: var(--color-paper);
+  }
+
   .header-content { min-height: 86px; }
 
   .site-nav {
@@ -33,7 +44,7 @@
   .site-nav [aria-current='page'] { box-shadow: inset 0 0 0 1px #bdc9f4; }
   .menu-button,.site-nav .mobile-shop { display: none; }
 
-  /* A faixa ondulada acompanha o topo do menu em todos os tamanhos. */
+  /* A faixa pode acompanhar o menu ou marcar a transição entre seções. */
   .party-ribbon {
     display: block;
     width: 100%;

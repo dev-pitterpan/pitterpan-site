@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PartyRibbon } from '../layout/party-ribbon';
 import styles from './about-hero.module.css';
 
 const pillars = [
@@ -43,6 +44,7 @@ export function AboutHero() {
           ))}
         </ul>
       </div>
+      <PartyRibbon />
     </section>
   );
 }
